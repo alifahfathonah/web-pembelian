@@ -7,8 +7,21 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">{{ $judul }}</div>
 
+        <div class="card-header"> {{-- style="font-size: 18px">{{ $judul }} --}}
+        <div class="row">
+          <div class="col-6">
+           <h4 class="card-title">{{ $judul }}</h4> 
+         </div>
+         <div class="col-6">
+          <span class="float-right">
+            <a class="btn btn-info btn-sm" href="{{ url('admin/barang/tambah') }}">
+              <i class="fas fa-plus-circle fa-lg fa-fw"></i> Tambah Barang</a>
+            </span>
+          </div>
+        </div>
+      </div>
+      
         <div class="card-body">
          <table class="table table-hover">
            <thead>

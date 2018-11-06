@@ -18,7 +18,7 @@
                             {{ Form::textarea('alamat',null,array('class'=>'form-control','placeholder' => 'Alamat','autofocus','rows'=>'3',)) }}
                             <span class="text-danger">{{ $errors->first('alamat') }}</span>
                         </div>
-                        <button type="submit" class="btn btn-primary">{{ $btn_submit }}</button>
+                        <button type="submit" class="btn btn-primary"><i class="far fa-save fa-fw"></i>{{ $btn_submit }}</button>
                     {!! Form::close() !!}
                 </div>
             </div>

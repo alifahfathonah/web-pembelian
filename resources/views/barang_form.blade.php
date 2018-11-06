@@ -44,7 +44,7 @@
                             {{ Form::textarea('harga_jual',null,array('class'=>'form-control','placeholder' => 'Harga','autofocus','rows'=>'3',)) }}
                             <span class="text-danger">{{ $errors->first('harga_jual') }}</span>
                         </div> --}}
-                        <button type="submit" class="btn btn-primary btn-sm"><i class="far fa-save fa-2x">&nbsp</i> {{ $btn_submit }}</button>
+                        <button type="submit" class="btn btn-primary"><i class="far fa-save fa-fw"></i> {{ $btn_submit }}</button>
                         {!! Form::close() !!}
                     </div>
                 </div>
