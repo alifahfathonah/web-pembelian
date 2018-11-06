@@ -27,8 +27,8 @@ class PelangganController extends Controller
   public function simpan(Request $request)
   {
     $validasi = $this->validate($request,[
-      'nama' => 'required|unique:pelanggans',
-      'alamat' => 'required',            
+      'nama' => 'required|min:3|max:50|unique:pelanggans',
+      'alamat' => 'required|min:4|max:50',            
     ]);         
     
     \App\Pelanggan::create($request->all());
@@ -55,8 +55,8 @@ class PelangganController extends Controller
   {
    $pelanggan = \App\Pelanggan::findOrFail($id);
    $validasi = $this->validate($request,[
-     'nama' => 'required|unique:pelanggans,nama,'.$id,
-     'alamat' => 'required',            
+     'nama' => 'required|min:3|max:50|unique:pelanggans,nama,'.$id,
+     'alamat' => 'required|min:4|max:50',            
    ]); 
    $pelanggan->update($request->all());        
    return redirect('admin/pelanggan')->with('pesan', 'Data diubah !');

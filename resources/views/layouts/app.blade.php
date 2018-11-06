@@ -19,10 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <link href="{{  asset('vendor/components/font-awesome/css/fontawesome.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('css/fontawesome.css')}}" rel="stylesheet"> --}}
- 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <link href="{{ asset('node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> --}}
 
 
 
@@ -41,77 +40,77 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-@auth
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url('home') }}"><i class="fas fa-home fa-fw"></i> Home</a>
-    </li>
-    <li class="nav-item dropdown">
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-database fa-fw"></i>
-        Data Master <span class="caret"></span>
-    </a>
-       <div class="dropdown-menu">                                    
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('home') }}"><i class="fas fa-home fa-fw"></i> Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-database fa-fw"></i>
+                                Data Master <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu">                                    
        {{--  <a class="dropdown-item" href="{{ url('admin/pelanggan/tambah') }}"><i class="far fa-address-card fa-fw"></i>
             Tambah Data Pelanggan
         </a> --}}
-        <a class="dropdown-item" href="{{ url('admin/pelanggan') }}">
+        <a class="dropdown-item" href="{{ url('admin/pelanggan') }}"><i class="fa fa-users fa-fw"></i>
             Data Pelanggan
         </a>
-        <a class="dropdown-item" href="{{ url('admin/barang') }}">
+        <a class="dropdown-item" href="{{ url('admin/barang') }}"><i class="fa fa-box-open fa-fw"></i>
             Data Barang
         </a>  
-        <a class="dropdown-item" href="{{ url('admin/barang/tambah') }}">
-        Tambah Data Barang
-        </a>                                  
-      </div>
-   </li>      
+       {{--  <a class="dropdown-item" href="{{ url('admin/barang/tambah') }}">
+            Tambah Data Barang
+        </a>        --}}                           
+    </div>
+</li>      
 @endauth
 
-                    </ul>
+</ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+<!-- Right Side Of Navbar -->
+<ul class="navbar-nav ml-auto">
+    <!-- Authentication Links -->
+    @guest
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+    </li>
+    @else
+    <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }} <span class="caret"></span>
+        </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                  <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-                                       
-                                    </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        </a>
 
-        <main class="py-4">
-            @if(Session::has('pesan'))
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</li>
+@endguest
+</ul>
+</div>
+</div>
+</nav>
+
+<main class="py-4">
+    @if(Session::has('pesan'))
     <div class="alert alert-info alert-dismissible">
-         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        {{ Session::get('pesan') }}
-    </div>
-@endif
-            @yield('content')
-        </main>
-    </div>
+       <a href="#" class="close" data-dismiss="alert">&times;</a>
+       {{ Session::get('pesan') }}
+   </div>
+   @endif
+   @yield('content')
+</main>
+</div>
 </body>
 </html>

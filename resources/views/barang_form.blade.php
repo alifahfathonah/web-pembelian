@@ -7,7 +7,7 @@
             <div class="card">
                <div class="card-header">{{ $judul }}</div>
                 <div class="card-body">
-                    {{ Form::model($barang, array('action' => $action, 'files' => true, 'method' => $method, 'enctype' => $enctype)) }}
+                    {{ Form::model($barang, array('action' => $action, 'files' => true, 'method' => $method,)) }}
                     <div class="form-group">
                         {{ Form::label('nama', 'NAMA BARANG') }}
                         {{ Form::text('nama',null,array('class'=>'form-control','placeholder' => 'Nama Barang','autofocus')) }}

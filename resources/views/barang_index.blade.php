@@ -44,10 +44,10 @@
             {{--  <td> {{$barang->gambar}} </td> --}}
              <td><img src="{{ Storage::url($barang->gambar) }}" width="50" /></td>
              <td>
-              <a href="{{ url('admin/barang/edit/'.$barang->id) }}" class="btn-sm btn-info" > Ubah</a> 
-              &nbsp;
+              <a href="{{ url('admin/barang/edit/'.$barang->id) }}" class="btn-sm btn-info" ><i class="far fa-edit fa-fw"></i></a> 
+              
 
-              <a href="{{ url('admin/barang/hapus/'.$barang->id) }}" class="btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus?')" > Hapus </a>
+              <a href="{{ url('admin/barang/hapus/'.$barang->id) }}" class="btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus?')" ><i class="far fa-trash-alt fa-fw"></i></a>
             </td>
           </tr>
           @endforeach
