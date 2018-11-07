@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Nov 2018 pada 20.43
+-- Waktu pembuatan: 07 Nov 2018 pada 17.05
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.10
 
@@ -46,7 +46,8 @@ INSERT INTO `barangs` (`id`, `nama`, `harga_jual`, `stok`, `gambar`, `created_at
 (1, 'Printer Canon', 700000, 10, 'C:\\xampp\\tmp\\phpFCF7.tmp', '2018-10-30 00:00:00', '2018-11-01 05:39:35'),
 (2, 'Monitor', 950000, 10, 'C:\\xampp\\tmp\\phpA1C0.tmp', '2018-10-31 03:03:10', '2018-10-31 14:06:22'),
 (4, 'Speaker', 300000, 15, 'public/gambar/YNcUMLYt7t5g7fXFHAlLIQr9KSCH06ILrG6bic6N.jpeg', '2018-11-01 05:38:50', '2018-11-01 05:38:50'),
-(5, 'Mouse', 75000, 20, 'public/gambar/p0VyiQ4ZTApN1I5Uua3lFpaPv6JRmI2OJVbwMLEG.jpeg', '2018-11-01 06:02:35', '2018-11-01 06:02:35');
+(5, 'Mouse', 75000, 20, 'public/gambar/p0VyiQ4ZTApN1I5Uua3lFpaPv6JRmI2OJVbwMLEG.jpeg', '2018-11-01 06:02:35', '2018-11-01 06:02:35'),
+(6, 'Printer Brother', 1800000, 10, 'public/gambar/i2gw4nQjuB0CQhC620qLZGPGVrNYQgNVAuaEo2l5.jpeg', '2018-11-07 15:28:33', '2018-11-07 15:28:33');
 
 -- --------------------------------------------------------
 
@@ -109,6 +110,32 @@ INSERT INTO `pelanggans` (`id`, `nama`, `alamat`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pembelians`
+--
+
+CREATE TABLE `pembelians` (
+  `id` int(10) NOT NULL,
+  `barang_id` int(10) NOT NULL,
+  `nama_pemasok` varchar(255) NOT NULL,
+  `jumlah` int(10) NOT NULL,
+  `harga` int(10) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pembelians`
+--
+
+INSERT INTO `pembelians` (`id`, `barang_id`, `nama_pemasok`, `jumlah`, `harga`, `created_at`, `updated_at`) VALUES
+(1, 1, 'CV. Suka Maju', 10, 600000, '2014-10-29 00:00:00', '2014-10-29 00:00:00'),
+(2, 2, 'CV. Biro Kasih', 20, 900000, '2014-10-29 00:00:00', '2014-10-29 00:00:00'),
+(3, 3, 'CV. Indah Komputer', 15, 500000, '2014-10-29 00:00:00', '2014-10-29 00:00:00'),
+(4, 4, 'CV. Jaya Park', 30, 350000, '2014-10-29 00:00:00', '2014-10-29 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `users`
 --
 
@@ -158,6 +185,12 @@ ALTER TABLE `pelanggans`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `pembelians`
+--
+ALTER TABLE `pembelians`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -172,7 +205,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -185,6 +218,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `pelanggans`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `pembelians`
+--
+ALTER TABLE `pembelians`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

@@ -58,6 +58,9 @@
         <a class="dropdown-item" href="{{ url('admin/barang') }}"><i class="fa fa-box-open fa-fw"></i>
             Data Barang
         </a>  
+        <a class="dropdown-item" href="{{ url('admin/pembelian') }}"><i class="fas fa-clipboard-list fa-fw"></i>
+            Data Pembelian
+        </a>  
        {{--  <a class="dropdown-item" href="{{ url('admin/barang/tambah') }}">
             Tambah Data Barang
         </a>        --}}                           
